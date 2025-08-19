@@ -71,7 +71,7 @@ Antes de rodar o projeto, você precisará ter instalado/configurado:
 
 6. **Inicie o container**:
    ```
-   docker run -it elt_dbt_gcp
+   docker run -it -p 8080:8080 elt_dbt_gcp
    ```
 
 7. **Execute os scripts Python**:
@@ -81,17 +81,26 @@ Antes de rodar o projeto, você precisará ter instalado/configurado:
 
 8. **Execute o dbt**:
    ```
+   cd dbt_project/elt_project
    dbt run
    ```
 
-9. **Visualização dos Schemas no BigQuery**:
+9. **Visualize a documentação do dbt executando**:
+   ```
+   dbt docs generate
+   dbt docs serve --host 0.0.0.0 --port 8080
+   ```
+
+![Documentação dbt](docs/doc_dbt.png)
+
+10. **Visualização dos Schemas no BigQuery**:
 Após a execução do pipeline, você pode conferir os schemas e tabelas criadas no BigQuery. Isso ajuda a entender como os dados estão organizados em cada camada.
 
 
 ![Schemas GCP](docs/schema_gcp.png)
 
 
-10. **Dashboard Looker Studio**
+11. **Dashboard Looker Studio**
 
 
 ![Dashboard](docs/dashboard.png)
