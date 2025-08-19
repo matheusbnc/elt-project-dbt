@@ -84,21 +84,34 @@ Antes de rodar o projeto, você precisará ter instalado/configurado:
 
 8. **Visualização dos Schemas no BigQuery**:
 Após a execução do pipeline, você pode conferir os schemas e tabelas criadas no BigQuery. Isso ajuda a entender como os dados estão organizados em cada camada.
+
+
 ![Schemas GCP](docs/schema_gcp.png)
 
 
 9. **Dashboard Looker Studio**
+
+
 ![Dashboard](docs/dashboard.png)
 
 ## Estrutura de Pastas
-- **.env.example**: Exemplo de arquivo de configuração de ambiente.
-- **Dockerfile**: Instruções para construir a imagem Docker do projeto.
-- **requirements.txt**: Lista de dependências Python necessárias para o projeto.
-- **README.md**: Documentação do projeto.
-- **profiles/**: Contém o arquivo de configuração do dbt e a chave de serviço do Google.
-- **data/**: Contém os arquivos CSV utilizados como fonte de dados.
-- **src/**: Contém scripts Python para extração e carregamento de dados.
-- **dbt_project/**: Contém a estrutura do projeto dbt, incluindo modelos, documentação e testes.
+elt_dbt_gcp/
+├── .env.example                    # Exemplo de arquivo de configuração de ambiente
+├── Dockerfile                      # Instruções para construir a imagem Docker
+├── requirements.txt                # Dependências Python do projeto
+├── README.md                       # Documentação do projeto
+├── profiles/                       # Configuração do dbt e chave de serviço do Google
+│   |── service_account.json
+│   └── profiles.json
+├── data/                           # Arquivos CSV utilizados como fonte de dados
+│   └── arquivo_exemplo.csv
+├── src/                            # Scripts Python para extração e carregamento de dados
+│   ├── main.py
+│   └── bigquery_connector.py
+└── dbt_project/                    # Estrutura do projeto dbt
+    ├── elt_project/models/         # Modelos Silver e Gold
+    └── elt_project/dbt_project.yml # Configuração principal do projeto dbt
+
 
 ## Boas Práticas e Observações
 - A separação em camadas (Bronze, Silver, Gold) facilita a manutenção e a compreensão do fluxo de dados.
