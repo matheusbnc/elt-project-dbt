@@ -1,3 +1,5 @@
+{{ config( materialized='view' ) }}
+
 with
     vendas_por_categoria as (
         select
