@@ -10,6 +10,8 @@ Este projeto é uma solução de ELT (Extract, Load, Transform) que integra Pyth
 
 ## Arquitetura do Projeto
 ![Arquitetura](docs/arquitetura.png)
+
+
 O projeto adota um fluxo ELT (Extract, Load, Transform) estruturado em três camadas de dados, integrando ferramentas específicas em cada etapa para garantir portabilidade, automação e escalabilidade do pipeline.
 
 | Etapa                   | Descrição                                                                           | Ferramentas / Infraestrutura |
