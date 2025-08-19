@@ -8,18 +8,24 @@ Este projeto é uma solução de ELT (Extract, Load, Transform) que integra Pyth
 - O **BigQuery** armazena os dados processados, garantindo performance e escalabilidade.
 - O **Looker Studio** é utilizado para visualização, permitindo a criação de dashboards dinâmicos e interativos.
 
-Com essa arquitetura, o projeto resolve o problema de integração, padronização e disponibilização de dados para análise, permitindo que usuários finais (analistas, gestores e equipes de BI) tenham acesso a informações confiáveis de forma rápida e intuitiva.
-
 ## Arquitetura do Projeto
-A arquitetura do projeto é dividida em três camadas:
+![Arquitetura](docs/arquitetura.png)
+O projeto adota um fluxo ELT (Extract, Load, Transform) estruturado em três camadas de dados, integrando ferramentas específicas em cada etapa para garantir portabilidade, automação e escalabilidade do pipeline.
 
+| Etapa                   | Descrição                                                                           | Ferramentas / Infraestrutura |
+| ----------------------- | ----------------------------------------------------------------------------------- | ---------------------------- |
+| **Sources (Bronze)**    | Arquivos CSV contendo os dados brutos, sem transformação.                           | CSV Files                    |
+| **Data Ingestion**      | Extração dos dados dos arquivos CSV e carregamento no Data Warehouse.               | Python + Docker              |
+| **Data Warehouse**      | Armazenamento dos dados limpos e preparados, permitindo consultas rápidas.          | BigQuery                     |
+| **Data Transformation** | Limpeza, transformação e modelagem dos dados, criando tabelas e views para análise. | dbt + Docker                 |
+| **Data Visualization**  | Criação de dashboards interativos e análises de KPIs para usuários finais.          | Looker Studio                |
+
+## Camadas de Dados
 - **Bronze**: Esta camada contém os dados brutos extraídos dos arquivos CSV. Os dados são armazenados sem qualquer transformação, servindo como a fonte original.
   
 - **Silver**: Nesta camada, os dados são limpos e transformados. Aqui, são realizadas operações de limpeza e preparação, como remoção de duplicatas e formatação de dados.
 
 - **Gold**: A camada final, onde os dados são modelados para análise. Modelos de dados são criados para facilitar relatórios e visualizações, permitindo que os usuários finais acessem informações de forma eficiente.
-
-![Arquitetura](docs/arquitetura.png)
 
 ## Lineage do dbt
 Os modelos dbt estão organizados em uma estrutura hierárquica, onde cada modelo é interconectado. A camada Gold contém modelos que dependem dos modelos Silver, que por sua vez dependem dos dados da camada Bronze. Essa organização permite rastrear a origem dos dados e entender como as transformações ocorrem ao longo do processo.
