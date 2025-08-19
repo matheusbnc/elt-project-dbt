@@ -95,6 +95,7 @@ Após a execução do pipeline, você pode conferir os schemas e tabelas criadas
 ![Dashboard](docs/dashboard.png)
 
 ## Estrutura de Pastas
+```
 elt_dbt_gcp/
 ├── .env.example                    # Exemplo de arquivo de configuração de ambiente
 ├── Dockerfile                      # Instruções para construir a imagem Docker
@@ -111,7 +112,7 @@ elt_dbt_gcp/
 └── dbt_project/                    # Estrutura do projeto dbt
     ├── elt_project/models/         # Modelos Silver e Gold
     └── elt_project/dbt_project.yml # Configuração principal do projeto dbt
-
+```
 
 ## Boas Práticas e Observações
 - A separação em camadas (Bronze, Silver, Gold) facilita a manutenção e a compreensão do fluxo de dados.
