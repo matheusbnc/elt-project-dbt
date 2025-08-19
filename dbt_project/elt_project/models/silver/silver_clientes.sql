@@ -1,5 +1,5 @@
 with
-    dim_clientes as (
+    silver_clientes as (
         select
             cliente_id AS id_cliente,
             nome AS nome_cliente,
@@ -10,4 +10,4 @@ with
 
     )
 
-select * from dim_clientes
+select * from silver_clientes

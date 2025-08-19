@@ -1,5 +1,5 @@
 with
-    fato_vendas as (
+    silver_vendas as (
         select
             data_id AS id_data,
             cliente_id AS id_cliente,
@@ -11,4 +11,4 @@ with
             {{ source('bronze', 'raw_vendas') }}
     )
 
-select * from fato_vendas
+select * from silver_vendas

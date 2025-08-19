@@ -1,5 +1,5 @@
 with
-    dim_data as (
+    silver_data as (
         select
             data_id AS id_data,
             data AS data_calendario,
@@ -13,4 +13,4 @@ with
             {{ source('bronze', 'raw_data') }}
     )
 
-select * from dim_data
+select * from silver_data

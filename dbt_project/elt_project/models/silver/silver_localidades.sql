@@ -1,5 +1,5 @@
 with
-    dim_localidades as (
+    silver_localidades as (
         select
             localidade_id AS id_localidade,
             cidade AS cidade_localidade,
@@ -10,4 +10,4 @@ with
             {{ source('bronze', 'raw_localidades') }}
     )
 
-select * from dim_localidades
+select * from silver_localidades

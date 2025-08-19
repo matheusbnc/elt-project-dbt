@@ -1,5 +1,5 @@
 with
-    dim_produtos as (
+    silver_produtos as (
         select
             produto_id AS id_produto,
             nome_produto AS nome_produto,
@@ -9,4 +9,4 @@ with
             {{ source('bronze', 'raw_produtos') }}
     )
 
-select * from dim_produtos
+select * from silver_produtos
