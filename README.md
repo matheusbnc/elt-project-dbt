@@ -52,44 +52,46 @@ Antes de rodar o projeto, você precisará ter instalado/configurado:
 1. **Clone o repositório**:
    ```
    git clone <URL do repositório>
-   cd elt_dbt_gcp
+   cd elt-project-dbt
    ```
 
 2. **Renomeie o arquivo `.env.example`** para `.env`. Nele está caminho para o arquivo `service_account.json` dentro do container, que será usado pelo script python.
 
-3. **Atualize o nome do project no dbt_project.yml**:
+3. **Atualize o nome do project no profiles/profiles.yml**:
     ```
     project: # Nome do projeto do bigquery aqui
     ```
 
-4. **Construa a imagem Docker**:
+4. **Coloque sua chave do gcp com acesso ao bigquery no arquivo service_account.json**
+
+5. **Construa a imagem Docker**:
    ```
    docker build -t elt_dbt_gcp .
    ```
 
-5. **Inicie o container**:
+6. **Inicie o container**:
    ```
    docker run -it elt_dbt_gcp
    ```
 
-6. **Execute os scripts Python**:
+7. **Execute os scripts Python**:
    ```
    python src/main.py
    ```
 
-7. **Execute o dbt**:
+8. **Execute o dbt**:
    ```
    dbt run
    ```
 
-8. **Visualização dos Schemas no BigQuery**:
+9. **Visualização dos Schemas no BigQuery**:
 Após a execução do pipeline, você pode conferir os schemas e tabelas criadas no BigQuery. Isso ajuda a entender como os dados estão organizados em cada camada.
 
 
 ![Schemas GCP](docs/schema_gcp.png)
 
 
-9. **Dashboard Looker Studio**
+10. **Dashboard Looker Studio**
 
 
 ![Dashboard](docs/dashboard.png)
