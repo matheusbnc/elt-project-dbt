@@ -1,0 +1,26 @@
+elt_project:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: # Nome do projeto do bigquery aqui
+      dataset: dev
+      keyfile: /root/.dbt/service_account.json
+      threads: 1
+      location: US
+      priority: interactive
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+
+    prod:
+      type: bigquery
+      method: service-account
+      project: # Nome do projeto do bigquery aqui
+      dataset: prd      
+      keyfile: /root/.dbt/service_account.json
+      threads: 1
+      location: US
+      priority: interactive
+      job_execution_timeout_seconds: 300
+      job_retries: 1
